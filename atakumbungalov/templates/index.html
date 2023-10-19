@@ -1,0 +1,219 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="icon" type="image/png" sizes="16x16"  href="static/images/favicon-16x16.png">
+
+
+    <title>Ana Sayfa</title>
+</head>
+
+<body>
+    {% include 'partials/_navbar.html' %}
+    <!--Section-1-->
+    <section class="section-1">
+        <div class="jumbotron d-flex align-items-center">
+            <div class="gradient"></div>
+            <div class="container-fluid content">
+                <br><br><br>
+                <h1 data-aos="fade-up" data-aos-delay="100">ATAKUM BUNGALOV EVLERİ</h1>
+                <h2 data-aos="fade-up" data-aos-delay="300">SAMSUN ATAKUMDA GÜNLÜK KİRALIK BUNGALOVLAR</h2>
+                <h4 data-aos="fade-up" data-aos-delay="500">HİZMETİNİZDE</h4><br><br>
+                <h6 data-aos="fade-up" data-aos-delay="500"><font color="gold">REZERVASYON YAPTIRMAK İÇİN İLETİŞİME GEÇİN</font></h6>
+                <p data-aos="fade-up" data-aos-delay="700"><a href="{% url 'iletisim' %}" class="btn btn-warning">İLETİŞİM</a></p>
+            </div>
+            <!--container-fluid end-->
+        </div>
+    </section>
+    {% comment %} <!--Section-2-->
+    <section class="section-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12 col-12 box-1">
+                    <div class="row box" data-aos="fade-left" data-aos-delay="300">
+                        <div class="col-lg-2 col-sm-12">
+                            <i class="fa fa-desktop" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-lg-10 col-sm-12">
+                            <h3><a href="services.html">design.</a></h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
+                            <p><a href="services.html"><img src="static/images/plus.png" alt="plus"></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12 box-2">
+                    <div class="row box" data-aos="fade-left" data-aos-delay="500">
+                        <div class="col-lg-2 col-sm-12">
+                            <i class="fa fa-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-lg-10 col-sm-12">
+                            <h3><a href="services.html">coding.</a></h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
+                            <p><a href="services.html"><img src="static/images/plus.png" alt="plus"></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-12 col-12 box-3">
+                    <div class="row box" data-aos="fade-left" data-aos-delay="700">
+                        <div class="col-lg-2 col-sm-12">
+                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-lg-10 col-sm-12">
+                            <h3><a href="services.html">support.</a></h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and</p>
+                            <p><a href="services.html"><img src="static/images/plus.png" alt="plus"></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> {% endcomment %}
+    <br>
+    <br><br><br>
+    {%for oda in oda%}
+    <section class="section-3">
+        <div class="container">
+            <div class="row m-0">
+                
+                    <div class="col-lg-5 col-md-12 p-0" data-aos="fade-right" data-aos-delay="300">
+                        <h2>{{oda.baslik}}</h2>
+                        <ul>
+                            <li><a href="{% url 'hizmetler'%}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{oda.ozellik1}}</a></li>
+                            <li><a href="{% url 'hizmetler'%}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{oda.ozellik2}}</a></li>
+                            <li><a href="{% url 'hizmetler'%}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{oda.ozellik3}}</a> </li>
+                            <li><a href="{% url 'hizmetler'%}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{oda.ozellik4}}</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-7 col-md-12 p-0" data-aos="fade-left" data-aos-delay="300">
+                        <figure>
+                            <img class="inner-img" src="{{oda.buyukresim.url}}" alt="services">
+                            <img class="out-sideimg" src="{{oda.kucukresim.url}}" alt="services">
+                        </figure>
+                    </div>
+                
+            </div>
+        </div>
+    </section>
+    {%endfor%}
+    <section class="section-4">
+        <div class="container">
+            
+            <!--/row-->
+            <div class="row">
+                {%for hizmet in hizmetler %}
+                    <div class="col-lg-4 col-sm-12 col-12 box-1"  data-aos="fade-right" data-aos-delay="300">
+                        <figure class="figure">
+                            <a ><img src="{{hizmet.image.url}}" class="figure-img img-fluid" alt="blog"></a>
+                            <figcaption class="figure-caption">
+                                <h4><a >{{hizmet.baslik}}</a></h4>
+                                <h5>{{hizmet.icerik}}</h5>
+                                
+                            </figcaption>
+                        </figure>
+                    </div>
+                {% endfor %}
+                {% comment %} <div class="col-lg-8 col-sm-12 col-12" data-aos="fade-left" data-aos-delay="300">
+                    <div class="row" >
+                        <div class="col-sm-6 col-12 box-2">
+                            <figure class="figure">
+                                <a><img src="static/images/mangal.jpg" class="figure-img img-fluid" alt="blog"></a>
+                            </figure>
+                        </div>
+                        <div class="col-sm-6 col-12 box-3">
+                            <h4><a>Barbekü</a></h4>
+                            <p>Ailenizle birlikte haftasonu bi farklılık yapıp mangal yapmaya ATAKUM BUNGALOV EVLERİNE gelebilirsiniz.</p>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-12 box-4">
+                            <figure class="figure">
+                                <a><img src="static/images/havuz.jpg" class="figure-img img-fluid" alt="blog"></a>
+                            </figure>
+                        </div>
+                        <div class="col-sm-6 col-12 box-5">
+                            <h4><a>Sınırsız WİFİ</a></h4>
+                            <h5>Sınırsız Wifi mevcuttur.</h5>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-12 box-6">
+                            <figure class="figure">
+                                <a><img src="static/images/556x807.jpg" class="figure-img img-fluid" alt="blog"></a>
+                            </figure>
+                        </div>
+                        <div class="col-sm-6 col-12 box-7">
+                            <h4><a>NETFLİX</a></h4>
+                            <h5>Özel günlerinizde sevdiklerinizle film izlemeniz için NETFLİX mevcuttur.</h5>
+                            
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+        <!--container-->
+    </section>
+    <!--Section-5-->
+    <section class="section-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-sm-8">
+                    <h3>Foto Galerimize Göz Atın </h3>
+                </div>
+                <div class="col-lg-5 col-sm-4">
+                    <a href="{% url 'galeri' %}" class="btn btn-warning">FOTO GALERİYE GİT</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="row"  data-aos="fade-up" data-aos-delay="300">
+                {% for foto in photo %}
+
+                        <a href="{{foto.image.url}}" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-3 box">
+                            <img src="{{foto.image.url}}" class="img-fluid">
+                            <div class="overlay">
+                            <img src="static/images/plus-img.png" alt="plus-icon">
+                            <div class="inner-text"><h4>RESMİ BÜYÜT </h4></div>
+                            </div>
+                        </a>
+                {%endfor%}
+            </div>
+            <!--/row-->
+        </div>
+        <!--container-->
+    </section>
+
+    {% include 'partials/_footer.html' %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+    <script src="static/js/animate.js"></script>
+    <script src="static/js/custom.js"></script>
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+
+    </script>
+</body>
+
+</html>
